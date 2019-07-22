@@ -15,8 +15,9 @@ EspChat - Entrar
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     var socket = io("https://sampaioleal.ml");
+    var userList;
     socket.on("validate", function (users) {
-        var userList = users;
+        userList = users;
     });
 
     $("#login").submit(function (event) {
