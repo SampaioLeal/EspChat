@@ -56,9 +56,8 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <audio hidden>
+        <audio class="audios" id="audio" controls preload="none">
             <source src="/notification.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
         </audio>
 
     </div>
@@ -73,7 +72,7 @@
 
         socket.on("receivedMessage", function (message) {
             renderMessage(message);
-            $("#notification")[0].play();
+            $("#audio").trigger('play');
         });
         socket.on("previousMessages", function (messages) {
             for (message of messages) {
