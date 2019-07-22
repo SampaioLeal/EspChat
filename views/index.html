@@ -76,7 +76,7 @@
             }
         });
         socket.on('counter', function (data) {
-            $(".online").html(`Online: ${data.count}`);
+            $(".online").html(`Online: <span class="badge badge-pill badge-success">${data.count}</span>`);
         });
 
         $("#chat").submit(function (event) {
