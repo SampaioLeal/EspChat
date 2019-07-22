@@ -18,7 +18,7 @@ socket.on("previousMessages", function (messages) {
     }
 });
 socket.on('counter', function (data) {
-    $(".online").html(`Online: <span class="badge badge-pill badge-success">${data.count}</span>`);
+    $(".online").html(data.count);
 });
 
 $("#chat").submit(function (event) {

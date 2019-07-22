@@ -6,7 +6,15 @@ EspChat
     <h1>Esp🌌Chat</h1>
 
     <form id="chat">
-        <span id="author" class="badge badge-primary"><%= username %></span> | <span class="online"></span>
+        <span id="author" class="badge badge-primary"><%= username %></span> | <div class="ui labeled button"
+            tabindex="0">
+            <div class="ui red button">
+                <i class="user icon"></i> Online
+            </div>
+            <a class="ui basic green left pointing label">
+                <span class="online"></span>
+            </a>
+        </div>
         <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
             <div class="card-header"><b>📬 Mensagens</b></div>
             <div class="card-body text-left messages">
@@ -15,14 +23,14 @@ EspChat
         <div class="form-group">
             <input type="text" name="message" class="form-control" placeholder="Digite sua mensagem...">
         </div>
-        <button type="submit" class="btn btn-block btn-primary">📧 Enviar</button>
+        <button type="submit" class="fluid ui blue button">📧 Enviar</button>
     </form>
     <hr class="my-4">
     <div class="alert alert-dismissible alert-info">
         Built with ❤️, made by Sampaio Leal. Thanks to Emanuelle Sá
     </div>
     <hr class="my-4">
-    <a href="/" class="btn btn-danger">💔 Sair</a>
+    <a href="/" class="ui red button">💔 Sair</a>
 
 </div>
 <audio style="display: none" class="audios" id="audio" controls preload="none">
