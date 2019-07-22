@@ -1,8 +1,8 @@
 {
-    "name": "multiplayer-game",
-    "version": "0.0.1",
+    "name": "espchat",
+    "version": "1.0.0",
     "main": "server.js",
-    "description": "Real-Time Multiplayer Game",
+    "description": "Real-Time Chat by EspTech",
     "dependencies": {
         "body-parser": "^1.19.0",
         "ejs": "^2.6.2",
