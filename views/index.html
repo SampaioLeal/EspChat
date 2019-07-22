@@ -43,7 +43,7 @@
     </div>
 
     <script>
-        var socket = io("http://sampaioleal.ml:3000");
+        var socket = io("http://sampaioleal.ml");
 
         function renderMessage(message) {
             $(".messages").append("<div class='message'><strong>" + message.author + "</strong>: " + message.message + "</div>")
