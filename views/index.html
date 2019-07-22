@@ -21,24 +21,8 @@
 </head>
 
 <body>
-
-    <div class="container login">
-        <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm-6">
-                <form id="user">
-                    <h3>Entrar</h3>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username">
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm"></div>
-        </div>
-    </div>
-
     <br>
-    <div class="container" id="chatBody" style="display: none;">
+    <div class="container">
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm-6 text-center">
@@ -50,6 +34,9 @@
                         <span class="online"></span>
                     </div>
                     <form id="chat">
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
+                        </div>
                         <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
                             <div class="card-header"><b>Mensagens</b></div>
                             <div class="card-body text-left messages">
@@ -75,19 +62,9 @@
 
     <script>
         var socket = io("https://sampaioleal.ml");
-        var username;
-
-        $("#user").submit(function (event) {
-            event.preventDefault();
-            if ($("input[name=username").val().length) {
-                username = $("input[name=username").val();
-                $(".login").hide();
-                $("#chatBody").fadeIn(3000);
-            }
-        });
 
         function renderMessage(message) {
-            $(".messages").append("<div class='message'><strong>" + message.user + "</strong>: " + message.message + "</div>")
+            $(".messages").append("<div class='message'><strong>" + message.user_id + "</strong>: " + message.message + "</div>")
         }
 
         socket.on("receivedMessage", function (message) {
@@ -98,7 +75,6 @@
                 renderMessage(message);
             }
         });
-        
         socket.on('counter', function (data) {
             $(".online").html(`Online: <span class="badge badge-pill badge-success">${data.count}</span>`);
         });
@@ -106,11 +82,12 @@
         $("#chat").submit(function (event) {
             event.preventDefault();
 
+            var author = $("input[name=username]").val();
             var message = $("input[name=message]").val();
 
-            if (message.length) {
+            if (author.length && message.length) {
                 var messageObject = {
-                    user: username,
+                    author: author,
                     message: message
                 };
 
@@ -120,7 +97,6 @@
                 $("input[name=message]").val("");
             }
         });
-        
         $(document).ready(function () {
             $(function () {
                 var wtf = $('.messages');
