@@ -9,9 +9,6 @@ EspChat - Entrar
     </div>
     <button id="join" class="btn btn-block btn-primary">Entrar</button>
     </form>
-    <hr class="my-4">
-    <h2>Usuários Online</h2>
-    <p id="users"></p>
 </div>
 
 <%- contentFor('scripts') %>
@@ -88,9 +85,6 @@ EspChat - Entrar
     });
 
     $(document).ready(function () {
-        for (user of userList) {
-            $("#users").append(user + ", ");
-        }
         $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
     });
 </script>
