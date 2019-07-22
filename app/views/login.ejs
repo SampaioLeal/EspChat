@@ -37,7 +37,7 @@ EspChat - Entrar
     }
 
     $("#join").click(function (event) {
-        if ($("#name").val().lentgh) {
+        if ($("#name").val().length) {
             event.preventDefault();
             if ($("#name").val() in userList) {
                 $("#name").val("");
