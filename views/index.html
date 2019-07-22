@@ -70,6 +70,7 @@
 
         function renderMessage(message) {
             $(".messages").append("<div class='message'><strong>" + message.author + "</strong>: " + message.message + "</div>")
+            $(function () { $('.messages').scrollTop($('.messages')[0].scrollHeight); });
         }
 
         socket.on("receivedMessage", function (message) {
@@ -104,11 +105,7 @@
             }
         });
         $(document).ready(function () {
-            $(function () {
-                var wtf = $('.messages');
-                var height = wtf[0].scrollHeight;
-                wtf.scrollTop(height);
-            });
+            $(function () { $('.messages').scrollTop($('.messages')[0].scrollHeight); });
             $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
         });
     </script>
