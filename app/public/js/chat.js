@@ -25,7 +25,7 @@ $("#chat").submit(function (event) {
     event.preventDefault();
     var message = $("input[name=message]").val();
 
-    if (author.length && message.length) {
+    if (message.length) {
         var messageObject = {
             author: author,
             message: message
