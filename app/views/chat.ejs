@@ -34,7 +34,7 @@ EspChat
 
 <%- contentFor('scripts') %>
 <script>
-    var socket = io("https://sampaioleal.ml");
+    var socket = io("/chat");
     var author = "<%= username %>";
 
     function renderMessage(message) {

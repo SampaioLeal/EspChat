@@ -34,15 +34,19 @@ let users = []
 let online = 0
 
 //Socket.io configuration
-io.on("connection", socket => {
+const lobby = io.of('/lobby')
+const chat = io.of('/chat')
 
+lobby.on("connection", socket => {
     socket.emit("validate", users)
+})
+chat.on("connection", socket => {
 
     //When a logged user connect to app
     socket.on("connected", data => {
         users.push(data)
         online++
-        io.emit('counter', { count: online })
+        chat.emit('counter', { count: online })
         socket.emit('previousMessages', messages)
         socket.emit("validate", users)
     })
@@ -56,7 +60,7 @@ io.on("connection", socket => {
     //When user disconnect from the app
     socket.on("disconnect", function () {
         online--
-        io.emit('counter', { count: online })
+        chat.emit('counter', { count: online })
     })
 })
 
