@@ -56,8 +56,7 @@ EspChat
 
     $("#chat").submit(function (event) {
         event.preventDefault();
-
-        var author = $("input[name=username]").val();
+        var author = "<%= username %>";
         var message = $("input[name=message]").val();
 
         if (author.length && message.length) {
