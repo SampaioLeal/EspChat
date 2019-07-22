@@ -2,13 +2,39 @@
 EspChat - Entrar
 
 <%- contentFor('content') %>
-<div class="jumbotron">
-    <h1>Fazer Login</h1>
-    <div class="form-group">
-        <input id="name" type="text" class="form-control" placeholder="Nome de usuário">
+<style>
+    body>.grid {
+        height: 100%;
+    }
+
+    .image {
+        margin-top: -100px;
+    }
+
+    .column {
+        max-width: 450px;
+    }
+</style>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui teal image header">
+            <img src="/public/images/logo.png" class="image">
+            <div class="content">
+                Entrar no chat
+            </div>
+        </h2>
+        <form class="ui large form">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" id="name" placeholder="Nome de usuário">
+                    </div>
+                </div>
+                <div id="join" class="ui fluid large blue submit button">Entrar</div>
+            </div>
+        </form>
     </div>
-    <button id="join" class="btn btn-block btn-primary">Entrar</button>
-    </form>
 </div>
 
 <%- contentFor('scripts') %>
