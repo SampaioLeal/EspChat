@@ -67,7 +67,3 @@ $("#name").keypress(function (event) {
         }
     }
 });
-
-$(document).ready(function () {
-    $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
-});
