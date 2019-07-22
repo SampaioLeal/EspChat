@@ -21,7 +21,7 @@ io.on("connection", socket => {
     socket.emit('previousMessages', messages);
 
     online++;
-    socket.emit('counter', { count: online });
+    io.emit('counter', { count: online });
 
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data);
@@ -29,7 +29,7 @@ io.on("connection", socket => {
     });
     socket.on("disconnect", function () {
         online--;
-        socket.emit('counter', { count: online });
+        io.emit('counter', { count: online });
     });
 });
 
