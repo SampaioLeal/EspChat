@@ -6,6 +6,8 @@ const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+const index = require("routes/index")
+const chat = require("routes/chat")
 
 //App setup
 app.set("views", path.join(__dirname, "views"))
@@ -45,7 +47,7 @@ io.on("connection", socket => {
         socket.broadcast.emit("receivedMessage", data)
         messages.push(data)
     })
-    
+
     //When user disconnect from the app
     socket.on("disconnect", function () {
         online--
