@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.render('login')
 })
 app.post('/chat', (req, res) => {
-    res.render('chat', {username: req.user})
+    res.render('chat', {username: req.body.user})
 })
 
 let messages = []
