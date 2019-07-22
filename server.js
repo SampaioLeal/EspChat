@@ -48,7 +48,7 @@ io.on("connection", socket => {
     //When user send a message
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data);
-        connection.query(`INSERT INTO messages (user_id, message, created_at) VALUES (${data.user_id}, ${data.message}, NOW())`, function (err, result) {
+        connection.query(`INSERT INTO messages (user, message, created_at) VALUES (${data.user}, ${data.message}, NOW())`, function (err, result) {
             if (err) throw err;
             getMessages();
         });
