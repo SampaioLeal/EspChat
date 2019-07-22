@@ -4,7 +4,7 @@ EspChat - Entrar
 <%- contentFor('content') %>
 <div class="jumbotron">
     <h1>Fazer Login</h1>
-    <form id="login">
+    <form method="POST" action="/chat" id="login">
         <div class="form-group">
             <input id="username" type="text" name="username" class="form-control" placeholder="Nome de usuário">
         </div>
@@ -22,11 +22,12 @@ EspChat - Entrar
 
     $("#login").submit(function (event) {
         event.preventDefault();
-        for(user of userList) {
-            if(user == $("#username").val()) {
-                $("#username").val("");
-                toastr.error('Este usuário já está online!', 'Desculpe.');
-            }
+        if ($("#username").val() in userList) {
+            $("#username").val("");
+            toastr.error('Este usuário já está online!', 'Desculpe.');
+        }
+        else {
+            $("#login").submit();
         }
     });
 </script>

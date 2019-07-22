@@ -44,6 +44,7 @@ io.on("connection", socket => {
         online++
         io.emit('counter', { count: online })
         socket.emit('previousMessages', messages)
+        socket.emit("validate", users)
     })
 
     //When user send a message
