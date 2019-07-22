@@ -1,0 +1,12 @@
+{
+    "name": "multiplayer-game",
+    "version": "0.0.1",
+    "main": "app.js",
+    "description": "Real-Time Multiplayer Game",
+    "dependencies": {
+        "ejs": "^2.6.2",
+        "express": "^4.17.1",
+        "socket.io": "^2.2.0"
+    },
+    "author": "Sampaio Leal"
+}
