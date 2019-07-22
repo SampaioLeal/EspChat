@@ -8,9 +8,6 @@ EspChat - Entrar
         <input id="name" type="text" class="form-control" placeholder="Nome de usuário">
     </div>
     <button id="join" class="btn btn-block btn-primary">Entrar</button>
-
-    <form style="display: none" id="form" method="POST" action="/chat">
-        <input id="username" type="text" name="username">
     </form>
 </div>
 <%- contentFor('scripts') %>
@@ -22,6 +19,23 @@ EspChat - Entrar
         userList = users;
     });
 
+    function post(path, params, method = 'post') {
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+        for (const key in params) {
+            if (params.hasOwnProperty(key)) {
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = key;
+                hiddenField.value = params[key];
+                form.appendChild(hiddenField);
+            }
+        }
+        document.body.appendChild(form);
+        form.submit();
+    }
+
     $("#join").click(function (event) {
         event.preventDefault();
         if ($("#name").val() in userList) {
@@ -29,9 +43,7 @@ EspChat - Entrar
             toastr.error('Este usuário já está online!', 'Desculpe.');
         }
         else {
-            var input = $("#username").val();
-            input = $("#name").val();
-            $("#form").submit();
+            post('/contact/', { username: $("#name").val() });
         }
     });
 </script>
