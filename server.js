@@ -27,13 +27,17 @@ app.use("/", (req, res) => {
     res.render("index.html");
 });
 
+//Project vars
 var online = 0;
 var messages = [];
 
-connection.query("SELECT * FROM messages", function (err, result) {
-    if (err) throw err;
-    messages = result;
-});
+//Functions
+function getMessages() {
+    connection.query("SELECT * FROM messages", function (err, result) {
+        if (err) throw err;
+        messages = result;
+    });
+}
 
 io.on("connection", socket => {
     socket.emit('previousMessages', messages);
@@ -43,7 +47,10 @@ io.on("connection", socket => {
 
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data);
-        messages.push(data);
+        connection.query(`INSERT INTO messages (user_id, message, created_at) VALUES (${data.user_id}, ${data.message}, NOW())`, function (err, result) {
+            if (err) throw err;
+            getMessages();
+        });
     });
     socket.on("disconnect", function () {
         online--;
