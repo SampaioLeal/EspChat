@@ -37,13 +37,18 @@ EspChat - Entrar
     }
 
     $("#join").click(function (event) {
-        event.preventDefault();
-        if ($("#name").val() in userList) {
-            $("#name").val("");
-            toastr.error('Este usuário já está online!', 'Desculpe.');
+        if ($("#name").val().lentgh) {
+            event.preventDefault();
+            if ($("#name").val() in userList) {
+                $("#name").val("");
+                toastr.error('Este usuário já está online!', 'Desculpe.');
+            }
+            else {
+                post('/chat', { username: $("#name").val() });
+            }
         }
         else {
-            post('/chat', { username: $("#name").val() });
+            toastr.error('Você deve inserir um nome de usuário!', 'Fique atento!');
         }
     });
 </script>
