@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm text-center">
-                <div class="online">Online: 0</div>
+                <div class="online"></div>
                 <form id="chat">
                     <div class="form-group">
                         <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
@@ -59,7 +59,7 @@
             }
         });
         socket.on('counter', function (data) {
-            $(".online").html(data.count);
+            $(".online").html(`Online: ${data.count}`);
         });
 
         $("#chat").submit(function (event) {
