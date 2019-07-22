@@ -15,21 +15,21 @@ app.use("/", (req, res) => {
 });
 
 let messages = [];
-let online = 0;
+var online = 0;
 
 io.on("connection", socket => {
     socket.emit('previousMessages', messages);
-    online++;
 
-    socket.emit('online', { online: online });
+    online++;
+    socket.emit('counter', { count: online });
 
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data);
         messages.push(data);
     });
     socket.on("disconnect", function () {
-        count--;
-        socket.emit('online', { online: online });
+        online--;
+        socket.emit('counter', { count: online });
     });
 });
 

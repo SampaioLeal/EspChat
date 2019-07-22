@@ -58,8 +58,8 @@
                 renderMessage(message);
             }
         });
-        socket.on('online', function (data) {
-            $(".online").text(data.count);
+        socket.on('counter', function (data) {
+            $(".online").html(data.count);
         });
 
         $("#chat").submit(function (event) {
