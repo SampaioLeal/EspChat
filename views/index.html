@@ -21,6 +21,7 @@
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm text-center">
+                <div class="online">Online: 0</div>
                 <form id="chat">
                     <div class="form-group">
                         <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
@@ -57,6 +58,9 @@
                 renderMessage(message);
             }
         });
+        socket.on('online', function (data) {
+            $(".online").text(data.count);
+        });
 
         $("#chat").submit(function (event) {
             event.preventDefault();
@@ -73,6 +77,7 @@
                 renderMessage(messageObject);
 
                 socket.emit("sendMessage", messageObject);
+                $("input[name=message]").val("");
             }
         });
         $(document).ready(function () {
