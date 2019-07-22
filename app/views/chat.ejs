@@ -13,33 +13,41 @@ EspChat
 </style>
 <div class="ui middle aligned center aligned grid">
     <div class="ui center aligned segment">
-        <h1>Esp <i class="meteor icon"></i> Chat</h1>
+
+        <h1>Esp <i class="comments icon"></i> Chat</h1>
+        <span id="author"><%= username %></span>
+        <div class="ui labeled button" tabindex="0">
+            <div class="ui green button">
+                <i class="users icon"></i> Online
+            </div>
+            <a class="ui basic green left pointing label">
+                <span class="online"></span>
+            </a>
+        </div>
+
+        <div class="ui divider"></div>
+
+        <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
+            <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
+            <div class="card-body text-left messages">
+            </div>
+        </div>
         <form id="chat">
-            <span id="author" class="badge badge-primary"><%= username %></span> | <div class="ui labeled button"
-                tabindex="0">
-                <div class="ui green button">
-                    <i class="users icon"></i> Online
-                </div>
-                <a class="ui basic green left pointing label">
-                    <span class="online"></span>
-                </a>
-            </div>
-            <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
-                <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
-                <div class="card-body text-left messages">
-                </div>
-            </div>
             <div class="form-group">
                 <input type="text" name="message" class="form-control" placeholder="Digite sua mensagem...">
             </div>
             <button type="submit" class="fluid ui blue button"><i class="paper plane icon"></i> Enviar</button>
         </form>
 
+        <div class="ui divider"></div>
+
         <div class="alert alert-dismissible alert-info">
             Built with ❤️, made by Sampaio Leal. Thanks to Emanuelle Sá
         </div>
         <a href="/" class="ui red button">💔 Sair</a>
+
     </div>
+</div>
 
 </div>
 <audio style="display: none" class="audios" id="audio" controls preload="none">
