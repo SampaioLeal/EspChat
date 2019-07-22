@@ -4,10 +4,9 @@ var author = $("#author").text();
 function renderMessage(message) {
     $(".messages").append("<div class='item'>" +
         "<div class='content'>" +
-        "<div class='header'><strong>" +
+        "<div class='description'><strong>" +
         message.author +
-        "</strong>:</div> " +
-        "<div class='description'>" +
+        "</strong>:" +
         message.message +
         "</div></div></div>");
     $(function () { $('.messages').scrollTop($('.messages')[0].scrollHeight); });
