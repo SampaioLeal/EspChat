@@ -29,7 +29,8 @@ EspChat - Entrar
             toastr.error('Este usuário já está online!', 'Desculpe.');
         }
         else {
-            $("#username").val() = $("#name").val();
+            var input = $("#username").val();
+            input = $("#name").val();
             $("#form").submit();
         }
     });
