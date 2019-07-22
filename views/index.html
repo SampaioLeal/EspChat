@@ -8,6 +8,7 @@
     <meta name="description" content="Chat desenvolvido para fins educacionais.">
     <meta name="keywords" content="chat, esp, espchat, esperantina">
     <meta name="author" content="Sampaio Leal">
+    <meta name="theme-color" content="#3c654c" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
@@ -27,7 +28,10 @@
             <div class="col-sm-6 text-center">
                 <div class="jumbotron">
                     <h1>EspChat</h1>
-                    <div class="online"></div>
+                    <div class="status">
+                        <img src="http://www.clker.com/cliparts/L/v/b/9/1/a/3d-green-ball-md.png">
+                        <span class="online"></span>
+                    </div>
                     <form id="chat">
                         <div class="form-group">
                             <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
