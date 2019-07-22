@@ -14,20 +14,24 @@ EspChat
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <img src="/images/logo.png" width="300px" class="image">
-        <div class="ui center aligned segment">
+        <div style="background: #ffffffcf;" class="ui center aligned segment">
             <a class="ui blue image label">
-                <img src="/images/user.jpg">
+                <img src="/images/user.png">
                 <span id="author"><%= username %></span>
             </a>
             <a class="ui green circular label"><span class="online"></span></a>
 
             <div class="ui divider"></div>
 
-            <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
-                <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
-                <div class="card-body text-left messages">
+            <div class="ui relaxed divided list messages">
+                <div class="item">
+                    <div class="content">
+                        <div class="header">Semantic-Org/Semantic-UI</div>
+                        <div class="description">Updated 10 mins ago</div>
+                    </div>
                 </div>
             </div>
+
             <form id="chat">
                 <div class="ui input">
                     <input type="text" name="message" placeholder="Digite sua mensagem...">

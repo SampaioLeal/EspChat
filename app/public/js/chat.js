@@ -2,7 +2,14 @@ var socket = io("/chat");
 var author = $("#author").text();
 
 function renderMessage(message) {
-    $(".messages").append("<div class='message'><strong>" + message.author + "</strong>: " + message.message + "</div>")
+    $(".messages").append("<div class='item'>" +
+        "<div class='content'>" +
+        "<div class='header'><strong>" +
+        message.author +
+        "</strong>:</div> " +
+        "<div class='description'>" +
+        message.message +
+        "</div></div></div>");
     $(function () { $('.messages').scrollTop($('.messages')[0].scrollHeight); });
 }
 
