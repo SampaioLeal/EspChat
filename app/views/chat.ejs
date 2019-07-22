@@ -12,10 +12,14 @@ EspChat
     }
 </style>
 <div class="ui middle aligned center aligned grid">
+    <h2 class="ui teal image header">
+        <img src="/images/logo.png" width="300px" class="image">
+    </h2>
     <div class="ui center aligned segment">
-
-        <h1>Esp <i class="comments icon"></i> Chat</h1>
-        <span id="author"><%= username %></span>
+        <a class="ui blue image label">
+            <img src="/images/user.jpg">
+            <span id="author"><%= username %></span>
+        </a>
         <div class="ui labeled button" tabindex="0">
             <div class="ui green button">
                 <i class="users icon"></i> Online
@@ -33,8 +37,8 @@ EspChat
             </div>
         </div>
         <form id="chat">
-            <div class="form-group">
-                <input type="text" name="message" class="form-control" placeholder="Digite sua mensagem...">
+            <div class="ui input">
+                <input type="text" name="message" placeholder="Digite sua mensagem...">
             </div>
             <button type="submit" class="fluid ui blue button"><i class="paper plane icon"></i> Enviar</button>
         </form>
