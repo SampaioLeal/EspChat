@@ -13,12 +13,19 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use(expressLayouts)
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.get('*', (req, res, next) => {
+    if (req.headers['x-forwarded-proto'] != 'https') {
+        res.redirect("https://" + req.headers.host + req.url)
+    } else {
+        next()
+    }
+});
 
 app.get('/', (req, res) => {
     res.render('login')
 })
 app.post('/chat', (req, res) => {
-    res.render('chat', {username: req.body.username})
+    res.render('chat', { username: req.body.username })
 })
 
 let messages = []
