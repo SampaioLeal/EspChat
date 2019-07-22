@@ -46,8 +46,8 @@ EspChat - Entrar
                     break;
                 }
             }
-            $("#name").val("");
             if (validate) {
+                $("#name").val("");
                 toastr.error('Este usuário já está online!', 'Desculpe.');
             }
             else {
