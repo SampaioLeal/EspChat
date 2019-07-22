@@ -40,6 +40,9 @@ const chat = io.of('/chat')
 lobby.on("connection", socket => {
     socket.emit("validate", users)
 })
+lobby.on("disconnect", socket=> {
+    
+})
 chat.on("connection", socket => {
 
     //When a logged user connect to app
