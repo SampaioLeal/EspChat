@@ -88,12 +88,9 @@ EspChat - Entrar
     });
 
     $(document).ready(function () {
-        function getUsers() {
-            for (user of userList) {
-                $("#users").append(user + ", ");
-            }
+        for (user of userList) {
+            $("#users").append(user + ", ");
         }
         $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
-        getUsers();
     });
 </script>
