@@ -31,7 +31,6 @@ app.post('/chat', (req, res) => {
 
 let messages = []
 let users = []
-let online = 0
 
 //Socket.io configuration
 const lobby = io.of('/lobby')
@@ -52,7 +51,7 @@ chat.on("connection", socket => {
     socket.on("connected", data => {
         curUser = data
         users.push(data)
-        online++
+        online = users.length
         chat.emit('counter', { count: online })
         socket.emit('previousMessages', messages)
         socket.emit("validate", users)
@@ -66,10 +65,10 @@ chat.on("connection", socket => {
 
     //When user disconnect from the app
     socket.on("disconnect", function () {
-        online--
-        chat.emit('counter', { count: online })
         users.pop(curUser)
         socket.emit("validate", users)
+        online = users.length
+        chat.emit('counter', { count: online })
     })
 })
 
