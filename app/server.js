@@ -39,9 +39,10 @@ const chat = io.of('/chat')
 
 lobby.on("connection", socket => {
     socket.emit("validate", users)
-})
-lobby.on("disconnect", socket=> {
-    
+
+    socket.on("disconnect", function() {
+        
+    })
 })
 chat.on("connection", socket => {
 
