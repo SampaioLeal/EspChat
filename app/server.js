@@ -41,13 +41,15 @@ lobby.on("connection", socket => {
     socket.emit("validate", users)
 
     socket.on("disconnect", function() {
-        
+
     })
 })
+
 chat.on("connection", socket => {
 
     //When a logged user connect to app
     socket.on("connected", data => {
+        var curUser = data
         users.push(data)
         online++
         chat.emit('counter', { count: online })
@@ -65,6 +67,7 @@ chat.on("connection", socket => {
     socket.on("disconnect", function () {
         online--
         chat.emit('counter', { count: online })
+        users.pop(curUser)
     })
 })
 
