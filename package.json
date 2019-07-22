@@ -10,5 +10,8 @@
         "express-ejs-layouts": "^2.5.0",
         "socket.io": "^2.2.0"
     },
-    "author": "Sampaio Leal"
+    "author": "Sampaio Leal",
+    "scripts": {
+        "start": "node app/server.js"
+    }
 }
