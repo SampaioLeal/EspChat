@@ -39,8 +39,15 @@ EspChat - Entrar
     $("#join").click(function (event) {
         if ($("#name").val().length) {
             event.preventDefault();
-            if ($("#name").val() in userList) {
-                $("#name").val("");
+            var validate = false;
+            for (user of userList) {
+                if (user == $("#name").val()) {
+                    validate = true;
+                    break;
+                }
+            }
+            $("#name").val("");
+            if (validate) {
                 toastr.error('Este usuário já está online!', 'Desculpe.');
             }
             else {
