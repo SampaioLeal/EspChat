@@ -54,7 +54,7 @@ chat.on("connection", socket => {
     //When user send a message
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data)
-        messages.push(data)
+        messages.push(data) 
     })
 
     //When user disconnect from the app
