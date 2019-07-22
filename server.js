@@ -40,11 +40,12 @@ function getMessages() {
 }
 
 io.on("connection", socket => {
+    //When user connects
     socket.emit('previousMessages', messages);
-
     online++;
     io.emit('counter', { count: online });
 
+    //When user send a message
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data);
         connection.query(`INSERT INTO messages (user_id, message, created_at) VALUES (${data.user_id}, ${data.message}, NOW())`, function (err, result) {
@@ -52,6 +53,7 @@ io.on("connection", socket => {
             getMessages();
         });
     });
+    //When user disconnect
     socket.on("disconnect", function () {
         online--;
         io.emit('counter', { count: online });

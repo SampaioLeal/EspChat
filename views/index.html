@@ -21,8 +21,17 @@
 </head>
 
 <body>
+
+    <div class="login">
+        <form id="user">
+            <div class="form-group">
+                <input type="text" class="form-control" name="username">
+            </div>
+        </form>
+    </div>
+
     <br>
-    <div class="container">
+    <div class="container" id="chatBody" hidden>
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm-6 text-center">
@@ -34,9 +43,6 @@
                         <span class="online"></span>
                     </div>
                     <form id="chat">
-                        <div class="form-group">
-                            <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
-                        </div>
                         <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
                             <div class="card-header"><b>Mensagens</b></div>
                             <div class="card-body text-left messages">
@@ -62,6 +68,16 @@
 
     <script>
         var socket = io("https://sampaioleal.ml");
+        var username;
+
+        $("#user").submit(function (event) {
+            event.preventDefault();
+            if ($("input[name=username").val().length) {
+                username = $("input[name=username").val();
+                $(".login").hide();
+                $("#chatBody").fadeIn(3000);
+            }
+        });
 
         function renderMessage(message) {
             $(".messages").append("<div class='message'><strong>" + message.user_id + "</strong>: " + message.message + "</div>")
@@ -82,7 +98,6 @@
         $("#chat").submit(function (event) {
             event.preventDefault();
 
-            var author = $("input[name=username]").val();
             var message = $("input[name=message]").val();
 
             if (author.length && message.length) {
