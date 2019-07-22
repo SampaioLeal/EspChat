@@ -9,7 +9,11 @@ EspChat - Entrar
     </div>
     <button id="join" class="btn btn-block btn-primary">Entrar</button>
     </form>
+    <hr class="my-4">
+    <h2>Usuários Online</h2>
+    <p id="users"></p>
 </div>
+
 <%- contentFor('scripts') %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
@@ -35,6 +39,11 @@ EspChat - Entrar
         document.body.appendChild(form);
         form.submit();
     }
+    function getUsers(users) {
+        for(user of users) {
+            $("#users").append(user+", ");
+        }
+    }
 
     $("#join").click(function (event) {
         if ($("#name").val().length) {
@@ -58,11 +67,33 @@ EspChat - Entrar
             toastr.error('Você deve inserir um nome de usuário!', 'Fique atento!');
         }
     });
-    /*
     $("#name").keypress(function (event) {
         if (event.which == 13) {
-            event.preventDefault();
+            if ($("#name").val().length) {
+                event.preventDefault();
+                var validate = false;
+                for (user of userList) {
+                    if (user == $("#name").val()) {
+                        validate = true;
+                        break;
+                    }
+                }
+                if (validate) {
+                    $("#name").val("");
+                    toastr.error('Este usuário já está online!', 'Desculpe.');
+                }
+                else {
+                    post('/chat', { username: $("#name").val() });
+                }
+            }
+            else {
+                toastr.error('Você deve inserir um nome de usuário!', 'Fique atento!');
+            }
         }
     });
-    */
+
+    $(document).ready(function () {
+        $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
+        getUsers(userList);
+    });
 </script>
