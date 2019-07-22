@@ -69,7 +69,7 @@
         var socket = io("https://sampaioleal.ml");
 
         function renderMessage(message) {
-            $(".messages").append("<div class='message'><strong>" + message.author + "</strong>: " + message.message + "</div>")
+            $(".messages").append("<div class='message'><strong>" + message.user_id + "</strong>: " + message.message + "</div>")
         }
 
         socket.on("receivedMessage", function (message) {
