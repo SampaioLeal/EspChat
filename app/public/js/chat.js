@@ -23,6 +23,7 @@ socket.on("previousMessages", function (messages) {
     for (message of messages) {
         renderMessage(message);
     }
+    $("#loader").fadeOut(1000);
 });
 socket.on('counter', function (data) {
     $(".online").html(data.count);
