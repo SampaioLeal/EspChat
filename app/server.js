@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //Routes
 //HTTPS Redirect (just in case)
-/* app.get('*', (req, res, next) => {
+app.get('*', (req, res, next) => {
     if (req.headers['x-forwarded-proto'] != 'https') {
         res.redirect("https://" + req.headers.host + req.url)
     } else {
         next()
     }
-}); */
+}); 
 app.get('/', (req, res) => {
     res.render('login')
 })
