@@ -46,7 +46,7 @@ lobby.on("connection", socket => {
 })
 
 chat.on("connection", socket => {
-    
+
     var curUser
     //When a logged user connect to app
     socket.on("connected", data => {
@@ -69,6 +69,7 @@ chat.on("connection", socket => {
         online--
         chat.emit('counter', { count: online })
         users.pop(curUser)
+        socket.emit("validate", users)
     })
 })
 
