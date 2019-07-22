@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
     res.render('login')
 })
+app.post('/chat', (req, res) => {
+    res.render('chat', req.user)
+})
 
 let messages = []
 var online = 0
