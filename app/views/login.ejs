@@ -22,7 +22,7 @@ EspChat - Entrar
         userList = users;
     });
 
-    $("#login").submit(function (event) {
+    $("#join").click(function (event) {
         event.preventDefault();
         if ($("#name").val() in userList) {
             $("#name").val("");
