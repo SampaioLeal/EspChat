@@ -39,12 +39,10 @@ EspChat - Entrar
         document.body.appendChild(form);
         form.submit();
     }
-    function getUsers() {
-        if (userList.length == 0) {
-            for (user of userList) {
+    function getUsers(users) {
+            for (user of users) {
                 $("#users").append(user + ", ");
             }
-        }
     }
 
     $("#join").click(function (event) {
@@ -96,6 +94,6 @@ EspChat - Entrar
 
     $(document).ready(function () {
         $.backstretch("https://i2.wp.com/personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg?ssl=1")
-        getUsers();
+        getUsers(userList);
     });
 </script>
