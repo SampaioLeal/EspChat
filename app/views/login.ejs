@@ -4,11 +4,13 @@ EspChat - Entrar
 <%- contentFor('content') %>
 <div class="jumbotron">
     <h1>Fazer Login</h1>
-    <form method="POST" action="/chat" id="login">
-        <div class="form-group">
-            <input id="username" type="text" name="username" class="form-control" placeholder="Nome de usuário">
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+    <div class="form-group">
+        <input id="name" type="text" class="form-control" placeholder="Nome de usuário">
+    </div>
+    <button id="join" class="btn btn-block btn-primary">Entrar</button>
+
+    <form style="display: none" id="form" method="POST" action="/chat">
+        <input id="username" type="text" name="username">
     </form>
 </div>
 <%- contentFor('scripts') %>
@@ -22,12 +24,13 @@ EspChat - Entrar
 
     $("#login").submit(function (event) {
         event.preventDefault();
-        if ($("#username").val() in userList) {
-            $("#username").val("");
+        if ($("#name").val() in userList) {
+            $("#name").val("");
             toastr.error('Este usuário já está online!', 'Desculpe.');
         }
         else {
-            $("#login").submit();
+            $("#username").val() = $("#name").val();
+            $("#form").submit();
         }
     });
 </script>
