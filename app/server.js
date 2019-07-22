@@ -40,16 +40,17 @@ const chat = io.of('/chat')
 lobby.on("connection", socket => {
     socket.emit("validate", users)
 
-    socket.on("disconnect", function() {
+    socket.on("disconnect", function () {
 
     })
 })
 
 chat.on("connection", socket => {
-
+    
+    var curUser
     //When a logged user connect to app
     socket.on("connected", data => {
-        var curUser = data
+        curUser = data
         users.push(data)
         online++
         chat.emit('counter', { count: online })
@@ -60,7 +61,7 @@ chat.on("connection", socket => {
     //When user send a message
     socket.on("sendMessage", data => {
         socket.broadcast.emit("receivedMessage", data)
-        messages.push(data) 
+        messages.push(data)
     })
 
     //When user disconnect from the app
