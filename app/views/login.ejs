@@ -43,7 +43,7 @@ EspChat - Entrar
             toastr.error('Este usuário já está online!', 'Desculpe.');
         }
         else {
-            post('/contact/', { username: $("#name").val() });
+            post('/chat', { username: $("#name").val() });
         }
     });
 </script>
