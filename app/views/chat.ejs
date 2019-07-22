@@ -3,27 +3,27 @@ EspChat
 
 <%- contentFor('content') %>
 <div class="jumbotron">
-    <h1>Esp🌌Chat</h1>
+    <h1>Esp <i class="meteor icon"></i> Chat</h1>
 
     <form id="chat">
         <span id="author" class="badge badge-primary"><%= username %></span> | <div class="ui labeled button"
             tabindex="0">
-            <div class="ui red button">
-                <i class="user icon"></i> Online
+            <div class="ui green button">
+                <i class="users icon"></i> Online
             </div>
             <a class="ui basic green left pointing label">
                 <span class="online"></span>
             </a>
         </div>
         <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
-            <div class="card-header"><b>📬 Mensagens</b></div>
+            <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
             <div class="card-body text-left messages">
             </div>
         </div>
         <div class="form-group">
             <input type="text" name="message" class="form-control" placeholder="Digite sua mensagem...">
         </div>
-        <button type="submit" class="fluid ui blue button">📧 Enviar</button>
+        <button type="submit" class="fluid ui blue button"><i class="envelope icon"></i> Enviar</button>
     </form>
     <hr class="my-4">
     <div class="alert alert-dismissible alert-info">
