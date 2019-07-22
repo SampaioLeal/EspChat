@@ -40,8 +40,10 @@ EspChat - Entrar
         form.submit();
     }
     function getUsers() {
-        for(user of userList) {
-            $("#users").append(user+", ");
+        if (userList.length) {
+            for (user of userList) {
+                $("#users").append(user + ", ");
+            }
         }
     }
 
