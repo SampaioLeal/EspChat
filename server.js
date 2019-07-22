@@ -4,10 +4,11 @@ const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+const expressLayouts = require('express-ejs-layouts');
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(expressLayouts)          // Definimos que vamos utilizar o express-ejs-layouts na nossa aplicação
-app.use(bodyParser.urlencoded())
+app.use(expressLayouts);
+app.use(bodyParser.urlencoded());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
