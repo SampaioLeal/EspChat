@@ -1,5 +1,5 @@
 var socket = io("/chat");
-var author = $("#author").val();
+var author = $("#author").text();
 
 function renderMessage(message) {
     $(".messages").append("<div class='message'><strong>" + message.author + "</strong>: " + message.message + "</div>")
