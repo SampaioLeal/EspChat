@@ -1,5 +1,13 @@
 <%- contentFor('title') %>
-EspChat - Login
+EspChat - Entrar
 
 <%- contentFor('content') %>
-dewdewd
+<div class="jumbotron">
+    <h1>Entrar</h1>
+    <form action="/chat" method="post" id="chat">
+        <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+    </form>
+</div>
