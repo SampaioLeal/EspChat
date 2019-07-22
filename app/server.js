@@ -30,15 +30,21 @@ app.post('/chat', (req, res) => {
 })
 
 let messages = []
-var online = 0
+let users = []
+let online = 0
 
 //Socket.io configuration
 io.on("connection", socket => {
 
-    //When user connect to app
-    socket.emit('previousMessages', messages)
-    online++
-    io.emit('counter', { count: online })
+    socket.emit("validate", users)
+
+    //When a logged user connect to app
+    socket.on("connected", data => {
+        users.push(data)
+        online++
+        io.emit('counter', { count: online })
+        socket.emit('previousMessages', messages)
+    })
 
     //When user send a message
     socket.on("sendMessage", data => {

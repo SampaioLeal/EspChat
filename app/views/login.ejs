@@ -4,11 +4,28 @@ EspChat - Entrar
 <%- contentFor('content') %>
 <div class="jumbotron">
     <h1>Fazer Login</h1>
-    <form action="/chat" method="post" id="chat">
+    <form id="login">
         <div class="form-group">
-            <input type="text" name="username" class="form-control" placeholder="Nome de usuário">
+            <input id="username" type="text" name="username" class="form-control" placeholder="Nome de usuário">
         </div>
         <button type="submit" class="btn btn-block btn-primary">Entrar</button>
     </form>
 </div>
 <%- contentFor('scripts') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    var socket = io("https://sampaioleal.ml");
+    socket.on("validate", function (users) {
+        var userList = users;
+    });
+
+    $("#login").submit(function (event) {
+        event.preventDefault();
+        for(user of userList) {
+            if(user == $("#username").val()) {
+                $("#username").val("");
+                toastr.error('Este usuário já está online!', 'Desculpe.');
+            }
+        }
+    });
+</script>
