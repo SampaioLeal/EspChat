@@ -30,7 +30,7 @@ app.use("/", (req, res) => {
 var online = 0;
 var messages = [];
 
-con.query("SELECT * FROM messages", function (err, result) {
+connection.query("SELECT * FROM messages", function (err, result) {
     if (err) throw err;
     messages = result;
 });
