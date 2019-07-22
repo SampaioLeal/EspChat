@@ -3,3 +3,7 @@
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.jumbotron {
+  padding-top: 20px!important;
+}
