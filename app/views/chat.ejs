@@ -68,9 +68,7 @@ EspChat
                 author: author,
                 message: message
             };
-
             renderMessage(messageObject);
-
             socket.emit("sendMessage", messageObject);
             $("input[name=message]").val("");
         }
