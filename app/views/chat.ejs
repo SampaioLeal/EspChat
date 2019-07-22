@@ -12,45 +12,46 @@ EspChat
     }
 </style>
 <div class="ui middle aligned center aligned grid">
-    <h2 class="ui teal image header">
-        <img src="/images/logo.png" width="300px" class="image">
-    </h2>
-    <br>
-    <div class="ui center aligned segment">
-        <a class="ui blue image label">
-            <img src="/images/user.jpg">
-            <span id="author"><%= username %></span>
-        </a>
-        <div class="ui labeled button" tabindex="0">
-            <div class="ui green button">
-                <i class="users icon"></i> Online
-            </div>
-            <a class="ui basic green left pointing label">
-                <span class="online"></span>
+    <div class="column">
+        <h2 class="ui teal image header">
+            <img src="/images/logo.png" width="300px" class="image">
+        </h2>
+        <div class="ui center aligned segment">
+            <a class="ui blue image label">
+                <img src="/images/user.jpg">
+                <span id="author"><%= username %></span>
             </a>
-        </div>
-
-        <div class="ui divider"></div>
-
-        <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
-            <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
-            <div class="card-body text-left messages">
+            <div class="ui labeled button" tabindex="0">
+                <div class="ui green button">
+                    <i class="users icon"></i> Online
+                </div>
+                <a class="ui basic green left pointing label">
+                    <span class="online"></span>
+                </a>
             </div>
-        </div>
-        <form id="chat">
-            <div class="ui input">
-                <input type="text" name="message" placeholder="Digite sua mensagem...">
+
+            <div class="ui divider"></div>
+
+            <div class="card text-black bg-secondary mb-3" style="max-width: 40rem;">
+                <div class="card-header"><b><i class="comments icon"></i> Mensagens</b></div>
+                <div class="card-body text-left messages">
+                </div>
             </div>
-            <button type="submit" class="fluid ui blue button"><i class="paper plane icon"></i> Enviar</button>
-        </form>
+            <form id="chat">
+                <div class="ui input">
+                    <input type="text" name="message" placeholder="Digite sua mensagem...">
+                </div>
+                <button type="submit" class="fluid ui blue button"><i class="paper plane icon"></i> Enviar</button>
+            </form>
 
-        <div class="ui divider"></div>
+            <div class="ui divider"></div>
 
-        <div class="alert alert-dismissible alert-info">
-            Built with ❤️, made by Sampaio Leal. Thanks to Emanuelle Sá
+            <div class="alert alert-dismissible alert-info">
+                Built with ❤️, made by Sampaio Leal. Thanks to Emanuelle Sá
+            </div>
+            <a href="/" class="ui red button">💔 Sair</a>
+
         </div>
-        <a href="/" class="ui red button">💔 Sair</a>
-
     </div>
 </div>
 
