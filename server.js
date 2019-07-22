@@ -41,6 +41,7 @@ function getMessages() {
 
 io.on("connection", socket => {
     //When user connects
+    getMessages();
     socket.emit('previousMessages', messages);
     online++;
     io.emit('counter', { count: online });
