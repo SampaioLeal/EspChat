@@ -13,3 +13,9 @@
 body {
   background: #009688;
 }
+body>.grid {
+  height: 100%!important;
+}
+.column {
+  max-width: 450px;
+}

@@ -5,9 +5,8 @@
     "description": "Real-Time Chat by EspTech",
     "dependencies": {
         "body-parser": "^1.19.0",
-        "ejs": "^2.6.2",
         "express": "^4.17.1",
-        "express-ejs-layouts": "^2.5.0",
+        "pug": "^2.0.4",
         "socket.io": "^2.2.0"
     },
     "author": "Sampaio Leal",

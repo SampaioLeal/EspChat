@@ -4,14 +4,13 @@ const path = require('path')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
-const expressLayouts = require('express-ejs-layouts')
+const pug = require('pug')
 const bodyParser = require('body-parser')
 
 //App setup
 app.set("views", path.join(__dirname, "views"))
-app.set("view engine", "ejs")
+app.set("view engine", "pug")
 app.use(express.static(path.join(__dirname, "public")))
-app.use(expressLayouts)
 app.use(bodyParser.urlencoded({ extended: true }))
 
 //Routes
@@ -24,10 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
     }
 }); */
 app.get('/', (req, res) => {
-    res.render('login')
+    res.render('login', { title: "EspChat - Entrar" })
 })
 app.post('/chat', (req, res) => {
-    res.render('chat', { username: req.body.username })
+    res.render('chat', { title: "EspChat", username: req.body.username })
 })
 
 let messages = []

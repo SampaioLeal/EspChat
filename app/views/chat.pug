@@ -1,0 +1,34 @@
+extends app.pug
+
+block content
+    #loader.ui.active.dimmer
+        .ui.text.loader Carregando...
+    .ui.middle.aligned.center.aligned.grid
+        .column
+            img.image(src="/images/logo.png", alt="EspChat Logo", width="250px")
+            #appSegment.ui.center.blue.aligned.segment(style="background: ffffffcf;")
+                a.ui.blue.image.label
+                    img(src="/images/user.png", alt="User Image")
+                    span#author #{username}
+                a.ui.green.circular.label
+                    span.online 
+                a.ui.red.icon.button(href="/") 
+                    i.sign-out.icon 
+                    span Sair
+                .ui.divider
+                .ui.raised.left.aligned.segment
+                    .ui.top.attached.label 
+                        span Mensagens
+                    .ui.celled.list
+                        .ui.comments.messages
+                form#chat
+                    .ui.action.fluid.input
+                        input(type="text", name="message", placeholder="Digite sua mensagem...")
+                        button.ui.blue.icon.button(type="submit")
+                            i.paper.plane.icon
+                .ui.divider
+                .ui.floating.message Made with ❤️, by Sampaio Leal. Thanks to Emanuelle Sá
+    audio#audio.audios(src="/notification.mp3", preload="none", style="display: none;")
+
+block scripts
+    script(src="/js/chat.js")

@@ -5,7 +5,7 @@ function renderMessage(message) {
     $(".messages").append(
         '<div class="comment">' +
         '<a class="avatar">' +
-        '<img src="/images/user.png">' +
+        '<img style="height: 35px!important;" src="/images/user.png">' +
         '</a>' +
         '<div class="content">' +
         '<a class="author">' +

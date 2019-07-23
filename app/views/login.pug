@@ -1,0 +1,16 @@
+extends app.pug
+
+block content
+    .ui.middle.aligned.center.aligned.grid
+        .column
+            img.image(src="/images/logo.png", alt="EspChat Logo", width="250px")
+            form.ui.large.form
+                .ui.stacked.segment
+                    .field
+                        .ui.left.icon.input
+                            i.user.icon
+                            input#name(type="text", placeholder="Nome de usuário")
+                    #join.ui.fluid.large.teal.submit.button Entrar
+
+block scripts
+    script(src="/js/login.js")
