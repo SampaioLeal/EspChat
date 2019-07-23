@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //Routes
 //HTTPS Redirect (just in case)
-app.get('*', (req, res, next) => {
+/* app.get('*', (req, res, next) => {
     if (req.headers['x-forwarded-proto'] != 'https') {
         res.redirect("https://" + req.headers.host + req.url)
     } else {
         next()
     }
-}); 
+}); */
 app.get('/', (req, res) => {
     res.render('login')
 })
@@ -53,10 +53,10 @@ chat.on("connection", socket => {
         curUser = data
         users.push(data)
         online = users.length
-        chat.emit('counter', { count: online })
-        socket.emit('previousMessages', messages)
+        chat.emit('counter', online)
         lobby.emit("validate", users)
-        socket.broadcast.emit('joinEvent', data)
+        socket.emit('welcome', {user: data, messages: messages})
+        socket.broadcast.emit('joined', data)
     })
 
     //When user send a message
@@ -70,7 +70,7 @@ chat.on("connection", socket => {
         users.pop(curUser)
         socket.emit("validate", users)
         online = users.length
-        chat.emit('counter', { count: online })
+        chat.emit('counter', online)
     })
 })
 

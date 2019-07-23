@@ -26,45 +26,16 @@ function renderMessage(message) {
     $(function () { $('.messages').scrollTop($('.messages')[0].scrollHeight); });
 }
 function renderEvent(data) {
-    var today = new Date();
-    var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-    var time = today.getHours() + ":" + today.getMinutes();
-    $(".messages").append(
-        '<div class="ui feed">' +
-        '<div class="event">' +
-        '<div class="label">' +
-        '<i class="pencil icon"></i>' +
-        '</div>' +
-        '<div class="content">' +
-        '<div class="summary">' +
-        data +
-        ' acaba de entrar no servidor!' +
-        '<div class="date">às ' +
-        time +
-        ' de ' +
-        date +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
-    );
+    toastr.info(`${data} acaba de entrar no chat!`, 'Dê as boas vindas!');
 }
 
 socket.emit("connected", author);
+console.log("Client connected!");
 
 socket.on("receivedMessage", function (message) {
     renderMessage(message);
     $("#audio").trigger('play');
-});
-socket.on("previousMessages", function (messages) {
-    for (message of messages) {
-        renderMessage(message);
-    }
-    $("#loader").fadeOut(1000);
-});
-socket.on('counter', function (data) {
-    $(".online").html(data.count);
+    console.log("New Event: receivedMessage");
 });
 
 $("#chat").submit(function (event) {
@@ -72,11 +43,11 @@ $("#chat").submit(function (event) {
     var message = $("input[name=message]").val();
 
     if (message.length) {
-        var today = new Date();
-        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-        var time = today.getHours() + ":" + today.getMinutes();
+        let today = new Date();
+        let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        let time = today.getHours() + ":" + today.getMinutes();
 
-        var messageObject = {
+        let messageObject = {
             author: author,
             message: message,
             date: date,
@@ -84,13 +55,34 @@ $("#chat").submit(function (event) {
         };
         renderMessage(messageObject);
         socket.emit("sendMessage", messageObject);
+        console.log("New Event: sendMessage");
         $("input[name=message]").val("");
     }
 });
 
-socket.on('joinEvent', function (data) {
+socket.on('counter', function (data) {
+    $(".online").html(data);
+    console.log("New Event: counter");
+});
+socket.on('joined', function (data) {
     renderEvent(data);
-    console.log(data);
+    console.log("New Event: joined");
+});
+socket.on("welcome", function (data) {
+    let today = new Date();
+    let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+    let time = today.getHours() + ":" + today.getMinutes();
+    renderMessage({
+        author: "BOT Jubileu",
+        message: `Seja bem-vindo, ${data.user}!`,
+        time: time,
+        date: date
+    });
+    for (message of data.messages) {
+        renderMessage(message);
+    }
+    $("#loader").fadeOut(1000);
+    console.log("New Event: welcome");
 });
 
 $(document).ready(function () {
