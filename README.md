@@ -1,5 +1,5 @@
 # EspChat
-[![GitHub issues](https://img.shields.io/github/issues/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/issues) [![GitHub forks](https://img.shields.io/github/forks/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/network) [![GitHub stars](https://img.shields.io/github/stars/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/stargazers) [![GitHub license](https://img.shields.io/github/license/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/issues) [![GitHub forks](https://img.shields.io/github/forks/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/network) [![GitHub license](https://img.shields.io/github/license/SampaioLeal/EspChat.svg)](https://github.com/SampaioLeal/EspChat/blob/master/LICENSE)
 
 WebChat in Real-Time using Node.JS, ExpressJS, EJS Engine, Socket.io, jQuery, Semantic-ui and Toastr.js! <3
 
