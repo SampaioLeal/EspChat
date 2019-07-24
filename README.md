@@ -15,7 +15,7 @@ If you have some issues, please tell us in [Issues tab](https://github.com/Sampa
 To use this app you just need to run `npm start`in the project root folder.
 
 ## Demo
-Currently there is a demo running on: [My Website](https://espchat.ml), go check it out!
+Currently there is a demo running on: [My Website](https://espchat.herokuapp.com/), go check it out!
 
 ## Credits
 Made with ❤, by [Sampaio Leal](https://www.instagram.com/samp4.io/). Thanks to Emanuelle Sá!
